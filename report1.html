@@ -38,9 +38,9 @@
         Dimple.js Chart construction code
       */
 
-          var myChart = new dimple.chart(svg, data);
+          var myChart = new dimple.chart(svg, avg_salary_data);
           var x = myChart.addTimeAxis("x", "year");
-          myChart.addMeasureAxis("y", "attendance");
+          myChart.addMeasureAxis("y", "salary");
 		  x.dateParseFormat = "%Y";
 		  x.tickFormat = "%Y";
 		  x.timeInterval = 4;
@@ -56,7 +56,35 @@
     Use D3 (not dimple.js) to load the TSV file
     and pass the contents of it to the draw function
     */
-  d3.json("report_activity.json", draw);
+  var salary_data = {
+    "2014":[],
+    "2015":[],
+    "2016":[],
+    "2017":[]
+  };
+  var avg_salary_data = {
+    "2014":0,
+    "2015":0,
+    "2016":0,
+    "2017":0
+  };
+  var report = d3.json("report_activity.json");
+  var members = d3.json("members.json", function(error, data) {
+
+      data = data.rows;
+      data.forEach(function(d) {
+        salary_data[members.members.update.start_date.slice(-4)].push(members.members.update.salary);
+      });
+  for(var year in salary_data)
+  {
+    var count =0;
+    year.forEach(function(val){
+      avg_salary_data[year] += val;
+      count++;
+    });
+    avg_salary_data = avg_salary_data[year]/count;
+  }
+
   </script>
 </body>
 </html>
