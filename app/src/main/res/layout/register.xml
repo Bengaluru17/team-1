@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="REGISTRATION FORM"
+            android:textSize="20dp"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.09"
+            android:layout_marginTop="35dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true">
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/id"
+                android:hint="id"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="144dp" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/name"
+                android:layout_below="@+id/id"
+                android:layout_alignStart="@+id/id"
+                android:hint="name" />
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/phnno"
+                android:layout_centerVertical="true"
+                android:layout_alignStart="@+id/name"
+                android:hint="CONTACT" />
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/dob"
+                android:layout_below="@+id/phnno"
+                android:layout_alignStart="@+id/phnno"
+                android:hint="Date of register" />
+
+
+            <EditText
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/doc"
+                android:layout_below="@+id/dob"
+                android:layout_alignStart="@+id/dob"
+                android:hint="Date of birth" />
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="REGISTER"
+                android:id="@+id/registerbutton"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40dp" />
+        </RelativeLayout>
+    </RelativeLayout>
