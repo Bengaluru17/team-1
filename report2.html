@@ -38,16 +38,13 @@
       /*
         Dimple.js Chart construction code
       */
-
       var myChart = new dimple.chart(svg, data);
-      var x = myChart.addTimeAxis("x", "year");
-      myChart.addMeasureAxis("y", "salary");
-  x.dateParseFormat = "%Y";
-  x.tickFormat = "%Y";
-  x.timeInterval = 4;
-      myChart.addSeries(null, dimple.plot.line);
-  myChart.addSeries(null, dimple.plot.scatter);
-      myChart.draw();
+            myChart.setBounds(60, 30, 510, 330)
+            myChart.addCategoryAxis("x", ["tailoring", "dataentry","embroidery","candlemaking"]);
+            myChart.addMeasureAxis("y", "Unit Sales");
+            myChart.addSeries("Channel", dimple.plot.bar);
+            myChart.addLegend(65, 10, 510, 20, "right");
+            myChart.draw();
         };
       </script>
   </head>
@@ -63,12 +60,20 @@
     "embroidery":0,
     "candlemaking":0
   };
-  var number_trained = trainings;
-  var number_working = trainings;
+  var number_trained = {
+    "tailoring":0,
+    "dataentry":0,
+    "embroidery":0,
+    "candlemaking":0
+  };
+  var number_working = {
+    "tailoring":0,
+    "dataentry":0,
+    "embroidery":0,
+    "candlemaking":0
+  };
 
-  console.log(salary_data);
-  console.log(avg_salary_data);
-
+  console.log(trainings);
    var data = [];
    $.getJSON("members.json", function(json) {
      $.getJSON("report_activity.json",function(json){
@@ -77,7 +82,7 @@
               var row = json["activity"][i];
               trainings[row["tag"]] ++;;
            }
-     console.log(trainings);
+     console.log("trainings",trainings);
       });
      function initChart(){
          //number of women trained & number of women working
@@ -87,10 +92,11 @@
                 if(row["update"]["salary"] != 0)
                 number_working[row["update"]["skill"]] += 1;
              }
-
+             console.log("trained",number_trained);
+             console.log("working",number_working);
          for (skill in trainings) {
            data.push({
-             'category': year,
+             'category': skill,
              'number_trained': number_trained["skill"],
              'number_working': number_working["skill"],
              'trainings': trainings["skill"]
