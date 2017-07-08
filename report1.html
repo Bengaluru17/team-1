@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <style>
   circle.dimple-series-1 {
   fill:red;
@@ -38,15 +39,15 @@
         Dimple.js Chart construction code
       */
 
-          var myChart = new dimple.chart(svg, data);
-          var x = myChart.addTimeAxis("x", "year");
-          myChart.addMeasureAxis("y", "salary");
-		  x.dateParseFormat = "%Y";
-		  x.tickFormat = "%Y";
-		  x.timeInterval = 4;
-          myChart.addSeries(null, dimple.plot.line);
-		  myChart.addSeries(null, dimple.plot.scatter);
-          myChart.draw();
+      var myChart = new dimple.chart(svg, data);
+      var x = myChart.addTimeAxis("x", "year");
+      myChart.addMeasureAxis("y", "salary");
+  x.dateParseFormat = "%Y";
+  x.tickFormat = "%Y";
+  x.timeInterval = 4;
+      myChart.addSeries(null, dimple.plot.line);
+  myChart.addSeries(null, dimple.plot.scatter);
+      myChart.draw();
         };
       </script>
   </head>
@@ -68,22 +69,43 @@
     "2016":0,
     "2017":0
   };
-  var report = d3.json("report_activity.json");
-  var members = d3.json("members.json");
-  for(var row in members) {
-        salary_data[members.members.update.start_date.slice(-4)].push(members.members.update.salary);
-      }
-  for(var year in salary_data)
-  {
-    var count =0;
-    year.forEach(function(val){
-      avg_salary_data[year] += val;
-      count++;
-    });
-    avg_salary_data = avg_salary_data[year]/count;
-  }
+  console.log(salary_data);
   console.log(avg_salary_data);
-draw(avg_salary_data);
+  //var report = d3.json("report_activity.json");
+   var data = [];
+   $.getJSON("members.json", function(json) {
+     console.log(json); // this will show the info it in firebug console
+     function initChart(){
+         //all your code for initChart here
+         for(var i=0;i<json["members"].length;i++) {
+                var row = json["members"][i];
+                salary_data[row["update"]["start_date"].slice(-4)].push(row["update"]["salary"]);
+             }
+             console.log(salary_data);
+         for(var year in salary_data)
+         {
+           var count =0;
+           for(var j = 0;j < salary_data[year].length; j++){
+             console.log(salary_data[year][j]);
+             avg_salary_data[year] += salary_data[year][j];
+             count++;
+           }
+           avg_salary_data[year] = avg_salary_data[year]/count;
+         }
+
+         for (year in avg_salary_data) {
+           data.push({
+             'year': year,
+             'salary': avg_salary_data[year]
+           });
+         }
+         console.log(avg_salary_data);
+     };
+     initChart();
+
+     draw(data);
+   });
+
   </script>
 </body>
 </html>
