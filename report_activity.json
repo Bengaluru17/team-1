@@ -1,4 +1,5 @@
-{"activity":[
+{
+  "activity":[
   {
     "activityname":"Tailoring Training Jan 17",
     "start_date":"01-01-2017",
@@ -45,7 +46,7 @@
     "number_engaged":4,
     "response_from_shelter_home":"Succesfull completion",
     "response_from_woman":"Very helpful",
-    "tag":"data entry"
+    "tag":"dataentry"
   },
   {
     "activityname":"Candle Making Training Jan 17",
@@ -57,7 +58,7 @@
     "number_engaged":4,
     "response_from_shelter_home":"Succesfull completion",
     "response_from_woman":"Very helpful",
-    "tag":"candle making"
+    "tag":"candlemaking"
   },
   {
     "activityname":"Candle Making Training Mar 17",
@@ -69,7 +70,7 @@
     "number_engaged":10,
     "response_from_shelter_home":"Succesfull completion",
     "response_from_woman":"Very helpful",
-    "tag":"candle making"
+    "tag":"candlemaking"
   }
 ]
 }

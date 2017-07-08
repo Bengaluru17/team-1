@@ -1,5 +1,6 @@
 {
-	"members": [{
+	"members": [
+    {
 			"name": "Laxmi",
 			"id": "100",
 			"dob": "20-09-1988",
@@ -58,7 +59,7 @@
 					}
 				},
 				"salary": 5000,
-				"skill": "data entry",
+				"skill": "dataentry",
 				"vocational_training_done": 1
 			}
 		},
