@@ -68,22 +68,31 @@
     "2016":0,
     "2017":0
   };
-  var report = d3.json("report_activity.json");
-  var members = d3.json("members.json");
-  for(var row in members) {
-        salary_data[members.members.update.start_date.slice(-4)].push(members.members.update.salary);
-      }
-  for(var year in salary_data)
-  {
-    var count =0;
-    year.forEach(function(val){
-      avg_salary_data[year] += val;
-      count++;
-    });
-    avg_salary_data = avg_salary_data[year]/count;
-  }
+  console.log(salary_data);
   console.log(avg_salary_data);
-draw(avg_salary_data);
+  //var report = d3.json("report_activity.json");
+  d3.json("linedata.json", function(data){
+    function initChart(){
+        //all your code for initChart here
+        for(var row in data) {
+              salary_data[members.update.start_date.slice(-4)].push(members.update.salary);
+            }
+        for(var year in salary_data)
+        {
+          var count =0;
+          for(var val in year){
+            avg_salary_data[year] += val;
+            count++;
+          }
+          avg_salary_data = avg_salary_data[year]/count;
+        }
+        console.log(avg_salary_data);
+      draw(avg_salary_data);
+    };
+    initChart();
+});
+
+
   </script>
 </body>
 </html>
