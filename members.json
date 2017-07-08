@@ -1,0 +1,89 @@
+{
+  "members":[
+            {
+              "name":"Laxmi",
+              "id":"100",
+              "dob":"20-09-1988",
+              "doc":"15-03-2016",
+              "update":{
+                        "start_date":"15-03-2016",
+                        "end_date":"",
+                        "contact":{
+                                  "phone":"876970133",
+                                  "address":{
+                                            "text":"shivaji nagar",
+                                            "lat":"",
+                                            "lon":""
+                                          },
+                                },
+                        "salary":"1000",
+                        "skill":"tailoring",
+                        "vocational_training_done":1
+                      }
+            },
+            {
+              "name":"Radha",
+              "id":"101",
+              "dob":"20-09-1986",
+              "doc":"15-07-2016",
+              "update":{
+                        "start_date":"15-07-2016",
+                        "end_date":"",
+                        "contact":{
+                                  "phone":"8769708133",
+                                  "address":{
+                                            "text":"shivaji nagar",
+                                            "lat":"",
+                                            "lon":""
+                                          },
+                                },
+                        "salary":"2000",
+                        "skill":"embroidery",
+                        "vocational_training_done":1
+                      }
+            },
+            {
+              "name":"Tamana",
+              "id":"102",
+              "dob":"20-04-1979",
+              "doc":"15-10-2016",
+              "update":{
+                        "start_date":"15-10-2016",
+                        "end_date":"",
+                        "contact":{
+                                  "phone":"877870133",
+                                  "address":{
+                                            "text":"rajaji nagar",
+                                            "lat":"",
+                                            "lon":""
+                                          },
+                                },
+                        "salary":"5000",
+                        "skill":"data entry",
+                        "vocational_training_done":1
+                      }
+            },
+            {
+              "name":"Harleen",
+              "id":"104",
+              "dob":"10-09-1976",
+              "doc":"15-03-2016",
+              "update":{
+                        "start_date":"15-03-2016",
+                        "end_date":"",
+                        "contact":{
+                                  "phone":"876979133",
+                                  "address":{
+                                            "text":"shivaji nagar",
+                                            "lat":"",
+                                            "lon":""
+                                          },
+                                },
+                        "salary":"1000",
+                        "skill":"tailoring",
+                        "vocational_training_done":1
+                      }
+            }
+
+  ]
+}
