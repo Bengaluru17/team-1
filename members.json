@@ -16,7 +16,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 1000,
+				"salary": 5000,
 				"skill": "tailoring",
 				"vocational_training_done": 1
 			}
@@ -58,7 +58,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 5000,
+				"salary": 4000,
 				"skill": "dataentry",
 				"vocational_training_done": 1
 			}
@@ -79,7 +79,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 1000,
+				"salary": 6000,
 				"skill": "tailoring",
 				"vocational_training_done": 1
 			}
@@ -100,7 +100,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 1000,
+				"salary": 5000,
 				"skill": "tailoring",
 				"vocational_training_done": 1
 			}
@@ -121,7 +121,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 1000,
+				"salary": 2000,
 				"skill": "dataentry",
 				"vocational_training_done": 0
 			}
@@ -142,7 +142,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 1000,
+				"salary": 4000,
 				"skill": "embroidery",
 				"vocational_training_done": 1
 			}
@@ -163,7 +163,7 @@
 						"lon": ""
 					}
 				},
-				"salary": 1000,
+				"salary": 5000,
 				"skill": "candlemaking",
 				"vocational_training_done": 1
 			}
