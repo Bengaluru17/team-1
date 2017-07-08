@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        b1 = (Button) findViewById(R.id.button);
+        b1 = (Button) findViewById(R.id.b);
 
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -23,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+
     }
 
 }

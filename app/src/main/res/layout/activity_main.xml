@@ -18,7 +18,7 @@
         android:layout_width="140dp"
         android:layout_height="50dp"
         android:text="Volunteer Login"
-        android:id="@+id/button"
+        android:id="@+id/b"
         android:textSize="15sp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
