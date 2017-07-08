@@ -180,7 +180,7 @@ public class LoginScreen extends AppCompatActivity
         else if (id == R.id.nav_update) {
             fragmentManager.beginTransaction()
                     .replace((R.id.content_frame)
-                            , new settings()).commit();
+                            , new update()).commit();
 
         } else if (id == R.id.nav_logout) {
             fragmentManager.beginTransaction()

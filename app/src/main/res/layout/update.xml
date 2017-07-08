@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="UPDATE FORM"
+        android:textSize="20dp"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.09"
+        android:layout_marginTop="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <RelativeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true">
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/wid"
+            android:hint="Womanid"
+            android:layout_marginTop="119dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/updateno" />
+
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/updateno"
+            android:hint="Updateno"
+            android:layout_below="@+id/wid"
+            android:layout_alignStart="@+id/reportdate"
+            android:layout_marginTop="19dp" />
+
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/reportdate"
+            android:hint="reportdate"
+            android:layout_below="@+id/updateno"
+            android:layout_alignStart="@+id/location"
+            android:layout_marginTop="21dp" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/location"
+            android:hint="Location"
+            android:layout_marginTop="17dp"
+            android:layout_below="@+id/reportdate"
+            android:layout_alignStart="@+id/updatebutton" />
+
+        <EditText
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/remarks"
+            android:hint="REMARKS"
+            android:layout_below="@+id/location"
+            android:layout_alignStart="@+id/location"
+            android:layout_marginTop="16dp"
+            android:text="Remarks" />
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:text="UPDATE"
+            android:id="@+id/updatebutton"
+
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+
+
+    </RelativeLayout>
+</RelativeLayout>
