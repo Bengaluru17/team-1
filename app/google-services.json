@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1020824111329",
+    "firebase_url": "https://ngoconnect-9156b.firebaseio.com",
+    "project_id": "ngoconnect-9156b",
+    "storage_bucket": "ngoconnect-9156b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020824111329:android:941b32290fc81749",
+        "android_client_info": {
+          "package_name": "hk.ust.cse.comp107x.ngoconnect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020824111329-2p13h0al6fvaqd89c2m5tag35pbu5e8k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGHlI9h9L_qUwy3VU5l60_zHBC6BL0wQY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
