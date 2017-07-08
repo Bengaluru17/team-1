@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <script src="http://d3js.org/d3.v3.min.js"></script>
-  <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+  <script src="http://d3js.org/d3.v4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dimple/2.3.0/dimple.latest.min.js"></script>
   <style>
   circle.dimple-series-1 {
   fill:red;
@@ -14,100 +14,89 @@
   }
 
   </style>
-    <script type="text/javascript">
-      function draw(data) {
-      /*
-        D3.js setup code
-      */
-          "use strict";
-          var margin = 75,
-              width = 1100 - margin,
-              height = 400 - margin;
-
-		  d3.select("body")
-		  .append("h2")
-		  .text("Activity Report");
-
-          var svg = d3.select("body")
-            .append("svg")
-              .attr("width", width + margin)
-              .attr("height", height + margin)
-            .append('g')
-                .attr('class','chart');
-
-      /*
-        Dimple.js Chart construction code
-      */
-      var myChart = new dimple.chart(svg, data);
-            myChart.setBounds(60, 30, 510, 330)
-            myChart.addCategoryAxis("x", ["tailoring", "dataentry","embroidery","candlemaking"]);
-            myChart.addMeasureAxis("y", "Unit Sales");
-            myChart.addSeries("Channel", dimple.plot.bar);
-            myChart.addLegend(65, 10, 510, 20, "right");
-            myChart.draw();
-        };
-      </script>
-  </head>
+</head>
 <body>
-  <script type="text/javascript">
-  /*
-    Use D3 (not dimple.js) to load the TSV file
-    and pass the contents of it to the draw function
-    */
-  var trainings = {
-    "tailoring":0,
-    "dataentry":0,
-    "embroidery":0,
-    "candlemaking":0
-  };
-  var number_trained = {
-    "tailoring":0,
-    "dataentry":0,
-    "embroidery":0,
-    "candlemaking":0
-  };
-  var number_working = {
-    "tailoring":0,
-    "dataentry":0,
-    "embroidery":0,
-    "candlemaking":0
-  };
+    <!-- Create an element for our chart -->
+  <h2>Activity Report</h2>
+<div id="chart" style="height: 400px; width: 100%;"></div>
 
-  console.log(trainings);
-   var data = [];
-   $.getJSON("members.json", function(json) {
-     $.getJSON("report_activity.json",function(json){
-       //number of trainings provided
-       for(var i=0;i<json["activity"].length;i++) {
-              var row = json["activity"][i];
-              trainings[row["tag"]] ++;;
-           }
-     console.log("trainings",trainings);
-      });
-     function initChart(){
-         //number of women trained & number of women working
-         for(var i=0;i<json["members"].length;i++) {
-                var row = json["members"][i];
-                number_trained[row["update"]["skill"]] += row["update"]["vocational_training_done"];
-                if(row["update"]["salary"] != 0)
-                number_working[row["update"]["skill"]] += 1;
-             }
-             console.log("trained",number_trained);
-             console.log("working",number_working);
-         for (skill in trainings) {
-           data.push({
-             'category': skill,
-             'number_trained': number_trained["skill"],
-             'number_working': number_working["skill"],
-             'trainings': trainings["skill"]
-           });
-         }
+<script type="text/javascript">
+var data=[];
+
+  //data organization
+     var trainings = {
+       "tailoring":0,
+       "dataentry":0,
+       "embroidery":0,
+       "candlemaking":0
      };
-     initChart();
-     draw(data);
-   });
+     var number_trained = {
+       "tailoring":0,
+       "dataentry":0,
+       "embroidery":0,
+       "candlemaking":0
+     };
+     var number_working = {
+       "tailoring":0,
+       "dataentry":0,
+       "embroidery":0,
+       "candlemaking":0
+     };
 
+      $.getJSON("members.json", function(json) {
+        $.getJSON("report_activity.json",function(json){
+          //number of trainings provided
+          for(var i=0;i<json["activity"].length;i++) {
+                 var row = json["activity"][i];
+                 trainings[row["tag"]] ++;;
+              }
+         });
+            //number of women trained & number of women working
+            for(var i=0;i<json["members"].length;i++) {
+                   var row = json["members"][i];
+                   number_trained[row["update"]["skill"]] += row["update"]["vocational_training_done"];
+                   if(row["update"]["salary"] != 0)
+                   number_working[row["update"]["skill"]] += 1;
+                }
 
+            for (skill in trainings) {
+                data.push({
+                  'category': skill,
+                  'number_type': "number_trained",
+                  'value': number_trained[skill] + "",
+                });
+                data.push({
+                  'category': skill,
+                  'number_type': "number_working",
+                  'value': number_working[skill] + "",
+                });
+                data.push({
+                  'category': skill,
+                  'number_type': "trainings",
+                  'value': trainings[skill] + "",
+                });
+            }
+      });
+      console.log(data);
+      // Create a new svg variable
+      var svg = dimple.newSvg("#chart", "100%", "100%");
+      // Create a new chart
+      var myChart = new dimple.chart(svg, data);
+      // Add an x-axis that groups the data by two categorical variables
+      myChart.addCategoryAxis("x", ["category", "number_type"]);
+      // Add a y-axis that is the percent of unit sales.
+      myChart.addMeasureAxis("y", "value");
+      // Add the data to the chart, grouped by "Channel"
+      var avg = myChart.addSeries("number_type", dimple.plot.bar);
+      // Calculate the average Unit Sales
+      avg.aggregate = dimple.aggregateMethod.avg;
+      console.log(avg.aggregate);
+      // // Add some margins
+       myChart.setMargins("10%", "10%", "10%", "20%");
+      // // Add a legend 50% from the left, 5% from the top, 510 width and 20 height, with inside text aligned right
+      myChart.addLegend("50%", "20%", 510, 20, "right");
+      // Draw the chart
+      myChart.draw();
   </script>
 </body>
 </html>
