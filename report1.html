@@ -38,7 +38,7 @@
         Dimple.js Chart construction code
       */
 
-          var myChart = new dimple.chart(svg, avg_salary_data);
+          var myChart = new dimple.chart(svg, data);
           var x = myChart.addTimeAxis("x", "year");
           myChart.addMeasureAxis("y", "salary");
 		  x.dateParseFormat = "%Y";
@@ -69,12 +69,10 @@
     "2017":0
   };
   var report = d3.json("report_activity.json");
-  var members = d3.json("members.json", function(error, data) {
-
-      data = data.rows;
-      data.forEach(function(d) {
+  var members = d3.json("members.json");
+  for(var row in members) {
         salary_data[members.members.update.start_date.slice(-4)].push(members.members.update.salary);
-      });
+      }
   for(var year in salary_data)
   {
     var count =0;
@@ -84,7 +82,8 @@
     });
     avg_salary_data = avg_salary_data[year]/count;
   }
-
+  console.log(avg_salary_data);
+draw(avg_salary_data);
   </script>
 </body>
 </html>
