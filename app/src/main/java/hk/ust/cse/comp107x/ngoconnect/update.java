@@ -40,7 +40,7 @@ public class update extends Fragment {
         uid = auth.getCurrentUser().getUid();
         final DatabaseReference[] ref2 = new DatabaseReference[1];
         updatebutton = (Button) myView.findViewById(R.id.updatebutton);
-        getbtn = (Button) myView.findViewById(R.id.getbtn);
+        //getbtn = (Button) myView.findViewById(R.id.getbtn);
         reportdate = (TextView) myView.findViewById(R.id.reportdate);
         location = (TextView) myView.findViewById(R.id.location);
         remarks = (TextView) myView.findViewById(R.id.remarks);
@@ -49,16 +49,6 @@ public class update extends Fragment {
 
 
 
-        getbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Creating firebase object
-               // final String k=wname.getText().toString().trim();
-
-              //  Toast.makeText(getActivity(), "register"+womanid, Toast.LENGTH_SHORT).show();
-
-            }
-        });
 
 
 

@@ -98,43 +98,7 @@ public class LoginScreen extends AppCompatActivity
 
 
     }
-  /*  @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search, menu);
-        // getMenuInflater().inflate(R.menu.login_screen, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.search);
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-        searchView.setOnQueryTextListener(this);
-        ComponentName cn = new ComponentName(this,LoginScreen.class);
-        SearchManager searchManager =
-                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(cn));
-        searchView.setSearchableInfo(
-                searchManager.getSearchableInfo(getComponentName()));
-
-        searchView.setIconifiedByDefault(true);
-
-        return true;
-    }
-*/
-   /* @Override
-    public boolean onQueryTextSubmit(String query) {
-        // User pressed the search button
-        return false;
-    }
-
-    @Override
-    public boolean onQueryTextChange(String newText) {
-        // User changed the text
-        return false;
-    }
-
-
-    *//**
-     * Prepare some dummy data for gridview
-     *//*
-*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -187,15 +151,15 @@ public class LoginScreen extends AppCompatActivity
                     .replace((R.id.content_frame)
                             , new logout()).commit();
 
-        } else if (id == R.id.nav_about) {
-            fragmentManager.beginTransaction()
-                    .replace((R.id.content_frame)
-                            , new about()).commit();
-        } else if (id == R.id.nav_home) {
+        }else if (id == R.id.nav_home) {
             fragmentManager.beginTransaction()
                     .replace((R.id.content_frame)
                             , new loginpage()).commit();
 
+        }else if (id == R.id.nav_faq) {
+            fragmentManager.beginTransaction()
+                    .replace((R.id.content_frame)
+                            , new FAQ()).commit();
         }
 
         // Handle navigation view item clicks here.
@@ -208,8 +172,7 @@ public class LoginScreen extends AppCompatActivity
             Toast.makeText(this, "update", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_logout) {
             Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_about) {
-            Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+
         } else if (id == R.id.nav_faq) {
             Toast.makeText(this, "FAQ", Toast.LENGTH_SHORT).show();
         }
