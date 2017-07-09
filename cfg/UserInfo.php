@@ -1,3 +1,15 @@
+<?php
+$db = mysqli_connect("localhost","root"," ","code_for_good");
+ if (!$db) {
+    die('Connect Error: ' . mysqli_connect_error());
+	}
+	?>
+	
+				 
+	  
+	
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,51 +94,67 @@
                 <div class="col-lg-12 text-center">
                  </div>
             </div>
+			<?
+			$sql2 = "SELECT * FROM `user";
+	  $result1 = mysqli_query($db,$sql2)or die(mysqli_error()); 
+	    $user = $row2['us_id'];
+		 $name = $row2['name'];
+		  $duration_of_stay = $row2['duration_of_stay'];
+		   $mobile = $row2['mobile'];
+		    $email = $row2['email'];
+			 $education = $row2['education'];
+			  $training= $row2['training'];
+			   $background= $row2['background'];
+			    $skills = $row2['skills'];
+				 $current_salary = $row2['current_salary'];
+				 $current_location= $row2['current_location'];
+				 $future_planes= $row2['future_planes'];
       
-        <table class="table table-striped">
+       echo " <table class="table table-striped">
     <tr>
     <th><b>User ID </b></th>
-    <th>   <?php echo $row['us_id']; ?>   </th>
+    <th> "  .$user.   "</th>
     </tr>
     <tr>
     <td><b>Member Name : </b></td>
-    <td>      </td>
+    <td>"  .$name.      "</td>
     </tr>
     <tr>
     <td><b>Contact Details : </b></td>
-    </tr>
+              
+	</tr>
     <tr>
     <td><b>Phone No : </b></td>
-    <td>            </td>
+    <td> ".$mobile."         </td>
     <td><b>Email : </b></td>
-    <td>            </td>
+    <td>   ".$email.       "  </td>
     </tr>
     <tr>
     <td><b>Educational Details </b></td>
-    <td>            </td>
+    <td> "     .$education.      " </td>
     </tr>
     <tr>
     <td><b>Vocational Training : </b></td>
-    <td>            </td>
+    <td> ".  $training       ."  </td>
     <td><b>Background : </b></td>
-    <td>            </td>  
+    <td>   ".$background.      "   </td>  
     </tr>
     <tr>
-    <td><b>Duration of Stay : </b></td>
-    <td>            </td>
+    
     <td><b>Skills : </b></td>
-    <td>            </td>
+    <td> "      $skills ."      </td>
     </tr>
     <tr>
     <td><b>Level of Skills</b></td>
-    <td>             </td>
+    <td>  ". $skills ."           </td>
     <td><b>Current Salary : </b></td>
-    <td>            </td>
+    <td> ". $current_salary ."          </td>
     </tr>
     <tr>
     <td><b>Current Location :</b></td>
-    <td>               </td>
+    <td>  ".  $current_location."           </td>
     </tr>
+	"?>
     <tr>
     <td><b>Future Plans</b></td>
     <td>                </td>
@@ -242,13 +270,3 @@
 </body>
 
 </html>
-<?php
-$db = mysqli_connect("localhost","root","","code_for_good");
- if (!$db) {
-    die('Connect Error: ' . mysqli_connect_error());
-	}
-	$sql2 = "SELECT * FROM `user";
-	  $result1 = mysqli_query($db,$sql2)or die(mysqli_error()); 
-	  ?>
-	
-
