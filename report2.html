@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+          //data organization
+             var trainings = {
+               "tailoring":0,
+               "dataentry":0,
+               "embroidery":0,
+               "candlemaking":0
+             };
+             var number_trained = {
+               "tailoring":0,
+               "dataentry":0,
+               "embroidery":0,
+               "candlemaking":0
+             };
+             var number_working = {
+               "tailoring":0,
+               "dataentry":0,
+               "embroidery":0,
+               "candlemaking":0
+             };
+
+              $.getJSON("members.json", function(json) {
+                $.getJSON("report_activity.json",function(json){
+                  //number of trainings provided
+                  for(var i=0;i<json["activity"].length;i++) {
+                         var row = json["activity"][i];
+                         trainings[row["tag"]] ++;;
+                      }
+                 });
+                    //number of women trained & number of women working
+                    for(var i=0;i<json["members"].length;i++) {
+                           var row = json["members"][i];
+                           number_trained[row["update"]["skill"]] += row["update"]["vocational_training_done"];
+                           if(row["update"]["salary"] != 0)
+                           number_working[row["update"]["skill"]] += 1;
+                        }
+          console.log(trainings);
+        var data = google.visualization.arrayToDataTable([
+          ['skill', 'number_trained', 'number_working', 'trainings'],
+          ['embroidery', number_trained["embroidery"], number_working["embroidery"], 2],
+          ['candlemaking',number_trained["candlemaking"], number_working["candlemaking"], 1],
+          ['dataentry', number_trained["dataentry"], number_working["dataentry"], 3],
+          ['tailoring', number_trained["tailoring"], number_working["tailoring"], 2]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Activity Report',
+            subtitle: 'Number of women trained, working and training sessions conducted',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+  </body>
+</html>

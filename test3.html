@@ -1,0 +1,134 @@
+<html>
+<body>
+<input type="text" id="username">
+<input type="text" id="password">
+<button type="submit" id="save">save</button>
+
+
+<input type="text" id="username2">
+<input type="text" id="password2">
+<button type="submit" id="save2">save</button>
+<div>
+<input type="text" id="name">
+<input type="text" id="id">
+<input type="text" id="dob">
+<input type="text" id="doc">
+<button type="submit" id="save3">save</button>
+<button type="submit" id="update">update</button>
+
+<table>
+<tbody id ='tblist'>
+
+</tbody>
+ </table>
+
+</div>
+</body>
+</html>
+<script   src="https://code.jquery.com/jquery-3.2.1.min.js"   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="   crossorigin="anonymous"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase-messaging.js"></script>
+<script>
+
+$( document ).ready(function(){
+var config = {
+    apiKey: "AIzaSyBw5b58HSUc0deHjFqvHqDCM4wfkOEh-FM",
+    authDomain: "ngoconnect-9156b.firebaseapp.com",
+    databaseURL: "https://ngoconnect-9156b.firebaseio.com",
+    projectId: "ngoconnect-9156b",
+    storageBucket: "ngoconnect-9156b.appspot.com",
+    messagingSenderId: "1020824111329"
+  };
+  var defaultapp = firebase.initializeApp(config);
+  $("#save").on("click",function(){
+	  var  email = $("#username").val();
+	  var password = $("#password").val();
+
+	  
+	  console.log(email+"password");
+	  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error){
+	 
+	  		 var errorCode = error.code;
+	  		 console.log(errorCode);
+	  		 var errorMsg = error.message;
+	  		 console.log(errorMsg);
+  // ...
+	});
+});
+
+  
+      $("#save2").on("click", function() {
+	    var email2 = $("#username2").val();
+	    var password2 = $("#password2").val();
+	    console.log(email2+" "+password2);
+	    firebase.auth().signInWithEmailAndPassword(email2, password2).catch(function(error) {
+		  // Handle Errors here.
+		  var errorCode = error.code;
+		  var errorMessage = error.message;
+		  // ...
+		});
+
+      });
+
+  var database= firebase.database();
+   $("#save3").on("click", function() {
+			var name = $("#name").val();
+	    	var id = $("#id").val();
+	    	var dob = $("#dob").val();
+	    	var doc = $("#doc").val();
+	    	
+      
+		  var ref = firebase.database().ref('members/');
+		  var obj = {	name: name,
+		  	             id: id,
+		  	             dob: dob,
+		  	             doc: doc
+		  				};
+
+		  ref.set(obj);  
+      });
+
+ $("#update").on("click", function() {
+			var name = $("#name").val();
+	    	var id = $("#id").val();
+	    	var dob = $("#dob").val();
+	    	var doc = $("#doc").val();
+	    	
+      
+		  var ref = firebase.database().ref('members/update');
+		  var obj = {	name: name,
+		  	             id: id,
+		  	             dob: dob,
+		  	             doc: doc
+		  				};
+
+		  ref.push(obj);  
+
+});
+$('#tblist').append("<tr><td>" + "hello" + "</td></tr>");
+ var player = firebase.database().ref("update/wid/upd1");
+ player.on("value",function(snap){
+
+ 	 console.info(snap);
+
+ 	var newplayer = snap.val();
+ 	 console.info(snap);
+ 	 var js= JSON.stringify(snap);
+ 	 console.info(js);
+
+ 	 for(i=0;i<4 ;i++)
+ {
+ 	$('#tblist').append("<tr><td>" + "hello" + "</td></tr>");
+ 	console.log(js[i]);
+ }
+ });
+ 
+
+ 
+ });
+</script>

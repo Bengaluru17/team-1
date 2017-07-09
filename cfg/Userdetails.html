@@ -1,0 +1,212 @@
+    <head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="http://darpg.gov.in/sites/default/files/favicon_0.png" type="image/png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>CFG </title>
+   <!-- Bootstrap Core CSS  -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/freelancer.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="shortcut icon" href="assets/ico/favicon_darpg.png">
+    <link href="css/adminstyle.css" rel="stylesheet">
+    <link href="css/govheader.css" rel="stylesheet">
+    
+
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+ </head>
+<body id="page-top" >
+<nav class="navbar navbar-default navbar-fixed-top">
+<div id="DIV_1">
+<div id="DIV_7">
+              
+             <img src="img/userlogo.png" alt="User" id="usericon" /><span id="SPAN_9"><b><?php echo $login_session; ?></b></span>
+                
+             </div>        
+</div>
+<!-- Navigation -->
+        <div class="container">
+         <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+            <img src="img/Emblem.png" class="img-responsive" alt="Ashoka Logo" id="Askoka"></div>
+             <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="adminindex.html">CFG </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="welcome.php">DASHBOARD</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="userprofile.php">PROFILE</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="logout.php">LOGOUT</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+        <!-- About Section -->
+    <section class="success" id="ComplaintPanel">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <br><br>
+                    <h2>USER HISTORY</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--ViewPanel-->
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                <h3>Enrolle Details</h3>
+                 </div>
+            </div>
+      
+        <table class="table table-striped">
+    <tr>
+    <th><b>User ID </b></th>
+    <th>      </th>
+    </tr>
+    <tr>
+    <td><b>Member Name : </b></td>
+    <td>      </td>
+    </tr>
+    <tr>
+    <td><b>Contact Details : </b></td>
+    </tr>
+    <tr>
+    <td><b>Phone No : </b></td>
+    <td>            </td>
+    <td><b>Email : </b></td>
+    <td>            </td>
+    </tr>
+    <tr>
+    <td><b>Educational Details </b></td>
+    <td>            </td>
+    </tr>
+    <tr>
+    <td><b>Vocational Training : </b></td>
+    <td>            </td>
+    <td><b>Background : </b></td>
+    <td>            </td>  
+    </tr>
+    <tr>
+    <td><b>Duration of Stay : </b></td>
+    <td>            </td>
+    <td><b>Skills : </b></td>
+    <td>            </td>
+    </tr>
+    <tr>
+    <td><b>Level of Skills</b></td>
+    <td>             </td>
+    <td><b>Current Salary : </b></td>
+    <td>            </td>
+    </tr>
+    <tr>
+    <td><b>Current Location :</b></td>
+    <td>               </td>
+    </tr>
+    <tr>
+    <td><b>Future Plans</b></td>
+    <td>                </td>
+    </tr>
+    <tr>
+    <td><b>Remarks</b></td>
+    <td>         </td>
+    </tr>
+    </table>
+    <h3 align="center">ADMIN OPTIONS</h3>
+    <table class="table table-striped">
+    <tr>
+    <td><b>Admin View</b></td>
+    <td><?php echo "$AdminView"; ?></td>
+    <td><b>Status</b></td>
+    <td><?php echo "$Status"; ?></td>
+   </tr>
+   <tr>
+   <td><b>Incharge Comments</b></td>
+   <td><?php echo "$IncComments"; ?></td>
+   <td><b>Last Update Performed By Details :</td>
+   <td><?php echo "$Updater"; ?></td>
+   </tr>
+   <tr>
+   <td><b>Approval Status</b></td>
+   <td><?php echo "$AppStatus"; ?></td>
+   <td><b>Approval Authorizer</b></td>
+   <td><?php echo "$Authorize"; ?></td>
+   </tr>
+   <tr>
+   <td><b>Approval TimeStamp</b></td>
+   <td><?php echo "$newDate2"; ?></td>
+   <td></td>
+   <td></td>
+   </tr>
+</table>
+        </form>    
+        <h5>Note :</h5><h6> -> TimeStamp Format is (DD-MM-YYYY HH:MM:ss AM/PM)</h6>
+        <h6>-> Request once Registered cannot be deleted , Contact the Admin of Concerned Deptt. to Delete (IF REQUIRED)</h6>
+        <h6>-> Approval Authorizer Format - (Admin Acc. Username) - Admin Name - Designation </h6>
+</div>
+ <!-- Footer -->
+        <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Location</h3>
+                        <p>Deptt of AR & PG , <p><p>Sardar Patel Bhawan , Sansad Marg<br>New Delhi, India 110001</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Around the Web</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://www.facebook.com/DARPGIndia/" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/darpg_goi" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Developer Info</h3>
+                        <p>National Informatics Centre , New Delhi<br>(DARPG Divison)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                    <img src="img/nic_logo.png" alt=""> &nbsp&nbsp&nbsp
+                        Copyright &copy; DARPG NIC Project 2016
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

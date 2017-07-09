@@ -1,0 +1,50 @@
+<?php
+    
+	if(isset($_POST['login']))
+    {
+			$username=$_POST['na'];
+			$password=$_POST['pass'];
+			
+		if(isset($_POST['Susername']))
+	    {
+			
+			$db = mysqli_connect("localhost","root","","blood donar");
+   
+   if (!$db) {
+    die('Connect Error: ' . mysqli_connect_error());
+}
+			$sql="select * from studentlogin where username='$username'";
+			$res=mysqli_query($db,$sql) or die("NOT QUERRIED");
+			$bool=false;
+			while($a=mysqli_fetch_array($res))
+			{
+				
+				if($a['password']==$password) 
+				{
+					$bool=true;
+					break;
+				}
+					
+			}
+			if($bool)
+			{
+				
+			   header("location:http://localhost/./blood/temp.php");
+
+
+			}
+			else 
+			{
+				echo("<h1 style='position:absolute;color:deeppink;top:250px;left:300px;'>PLEASE ENTER CORRECT USERNAME AND PASSWORD</h1>");
+                include("location:http://localhost/./placement/index.html");
+				
+				
+			}
+		}
+		else 
+		{
+			echo("<h1>YOUR FORM IS NOT COMPLETE</h1>");
+			
+		}
+	}	
+?> 
