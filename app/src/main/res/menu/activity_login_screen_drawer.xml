@@ -14,10 +14,7 @@
             android:id="@+id/nav_update"
 
             android:title="UPDATE" />
-        <item
-            android:id="@+id/nav_profile"
 
-            android:title="VIEW PROFILE" />
         <item
             android:id="@+id/nav_logout"
 
@@ -31,10 +28,7 @@
                 android:id="@+id/nav_faq"
 
                 android:title="FAQ" />
-            <item
-                android:id="@+id/nav_about"
 
-                android:title="ABOUT" />
         </menu>
     </item>
 

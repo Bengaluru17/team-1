@@ -127,7 +127,7 @@ public class signup2 extends AppCompatActivity
                             String uid =  auth.getCurrentUser().getUid();
                             Log.d(LOG_TAG,"uid  "+ uid);
                             createUserInFirebaseHelper(uid);
-                            Intent i1 = new Intent(signup2.this,MainActivity.class);
+                            Intent i1 = new Intent(signup2.this,LoginScreen.class);
                             i1.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(i1);
                         }
@@ -153,27 +153,7 @@ public class signup2 extends AppCompatActivity
         Users newUser = new Users(userName, email);
         mDatabase.child("USERS").child(uid).setValue(newUser);
 
-        /**
-         * See if there is already a user (for example, if they already logged in with an associated
-         * Google account.
-         */
-       /* userLocation.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                *//* If there is no user, make one *//*
-                if (dataSnapshot.getValue() == null) {
-                    Log.d(LOG_TAG,"uesr data set");
 
-                    User newUser = new User(userName, email);
-                    userLocation.setValue(newUser);
-                }
-            }
-
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-                Log.d(LOG_TAG, getString(R.string.log_error_occurred) + firebaseError.getMessage());
-            }
-        });*/
 
     }
 
