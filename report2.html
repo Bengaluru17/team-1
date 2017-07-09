@@ -29,15 +29,12 @@
 
               $.getJSON("members.json", function(json) {
                 $.getJSON("report_activity.json",function(json){
-                  console.log(json);
                   //number of trainings provided
                   for(var i=0;i<json["activity"].length;i++) {
                          var row = json["activity"][i];
-                         console.log(row["tag"]);
-                         trainings[row["tag"]] += 1;;
+                         trainings[row["tag"]] ++;;
                       }
                  });
-                 console.log(trainings);
                     //number of women trained & number of women working
                     for(var i=0;i<json["members"].length;i++) {
                            var row = json["members"][i];
@@ -49,9 +46,9 @@
         var data = google.visualization.arrayToDataTable([
           ['skill', 'number_trained', 'number_working', 'trainings'],
           ['embroidery', number_trained["embroidery"], number_working["embroidery"], 2],
-          ['candlemaking',number_trained["candlemaking"], number_working["candlemaking"], 3],
-          ['dataentry', number_trained["dataentry"], number_working["dataentry"], 2],
-          ['tailoring', number_trained["tailoring"], number_working["tailoring"],2]
+          ['candlemaking',number_trained["candlemaking"], number_working["candlemaking"], 1],
+          ['dataentry', number_trained["dataentry"], number_working["dataentry"], 3],
+          ['tailoring', number_trained["tailoring"], number_working["tailoring"], 2]
         ]);
 
         var options = {
