@@ -254,7 +254,7 @@ $db = mysqli_connect("localhost","root","","code_for_good");
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>About Kashmata</h3>
-                        <p>NGO Partner - <a href="http://kshamata.org"> CFG </a>.</p>
+                        <p>NGO Partner - <a href="http://kshamata.org">CFG </a>.</p>
                     </div>
                 </div>
             </div>
@@ -263,7 +263,6 @@ $db = mysqli_connect("localhost","root","","code_for_good");
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Ksmata 2017 : All rights Reserved
                     </div>
                 </div>
             </div>
